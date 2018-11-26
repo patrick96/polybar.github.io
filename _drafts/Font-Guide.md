@@ -142,13 +142,17 @@ This approach can be used for quick verification and should return the same resu
 
 
 ### Glyph Resolution
+When polybar has to figure out with which font to draw a glyph with it does so as follows:
+It goes through the list of fonts (`font-0`, `font-1`, ...) in order and uses the first font that can render the given glyph.
+
+If a formatting tag (`%{T}`) or a font property (e.g. `label-font`) was used, polybar first searches the font given there and subsequently searches through the font list as described above.
 
 #### Changing Fonts
 
 ## Troubleshooting
 
 ### Glyph Conflicts
-It is possible that two glyphs from different fonts map to the same codepoint. When this codepoint is then rendered on the bar, it may be rendered as any of the glyphs that corespond to that codepoint, depending on which order you have listed your fonts. See [Glyph Resolution](#???) for details on which glyph is chosen.
+It is possible that two glyphs from different fonts map to the same codepoint. When this codepoint is then rendered on the bar, it may be rendered as any of the glyphs that correspond to that codepoint, depending on which order you have listed your fonts. See [Glyph Resolution](#???) for details on which glyph is chosen.
 
 If the glyph from the wrong font is shown, you can fix this by explicity specifying which font should be used.
 
